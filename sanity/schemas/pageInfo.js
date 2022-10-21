@@ -14,6 +14,18 @@ export default {
       type: "string",
     },
     {
+      name: "introLine1",
+      title: "Intro Line - 1",
+      description: "This line get Typewriter animation",
+      type: "string",
+    },
+    {
+      name: "introLine2",
+      title: "Intro Line - 2",
+      description: "This line get Typewriter animation",
+      type: "string",
+    },
+    {
       name: "heroImage",
       title: "Hero Image",
       type: "image",

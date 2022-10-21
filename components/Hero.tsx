@@ -14,11 +14,12 @@ function Hero({ pageInfo }: Props) {
   const heroImage = urlFor(pageInfo?.heroImage).url();
   const heroAltText = pageInfo?.name;
 
+  // Typewriter effect
   const [text, count] = useTypewriter({
     words: [
       `Hi, The Name's ${pageInfo?.name};`,
-      "Guy-who-loves-Coffee.tsx",
-      "<ButLovesToCodeMore />",
+      `${pageInfo?.introLine1}`,
+      `${pageInfo?.introLine2}`,
     ],
     loop: true,
     delaySpeed: 2000,
