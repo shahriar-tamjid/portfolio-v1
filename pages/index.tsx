@@ -81,8 +81,6 @@ const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
   );
 };
 
-export default Home;
-
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const pageInfo: PageInfo = await fetchPageInfo();
   const experiences: Experience[] = await fetchExperiences();
@@ -102,9 +100,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     // - When a request comes in
     // - At most once every 100 seconds
     revalidate: 100,
-
-    // We'll pre-render only these paths at build time.
-    // { fallback: false } means other routes should 404.
-    fallback: false,
   };
 };
+
+export default Home;
