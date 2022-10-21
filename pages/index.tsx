@@ -1,4 +1,3 @@
-import type { GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -81,7 +80,7 @@ const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const getServerSideProps = async () => {
   const pageInfo: PageInfo = await fetchPageInfo();
   const experiences: Experience[] = await fetchExperiences();
   const skills: Skill[] = await fetchSkills();
@@ -89,17 +88,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const socials: Social[] = await fetchSocials();
 
   return {
-    props: {
-      pageInfo,
-      experiences,
-      skills,
-      projects,
-      socials,
-    },
-    // Next.js will attempt to re-generate the page:
-    // - When a request comes in
-    // - At most once every 100 seconds
-    revalidate: 100,
+    props: { pageInfo, experiences, skills, projects, socials, },
   };
 };
 
